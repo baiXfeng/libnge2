@@ -21,7 +21,7 @@ FILE *g_logfile = NULL, *g_errorfile = NULL;
 /**
  *  nge_printf
  */
-inline void nge_printf (FILE** pFile, const char* filename, const char* pMessage, va_list	ArgPtr)
+inline static void nge_printf (FILE** pFile, const char* filename, const char* pMessage, va_list	ArgPtr)
 {
 	char	Message[1024] = {0};
 	char*   FirstLog = "-------------------------=NGE LOG=-------------------------\n";

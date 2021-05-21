@@ -12,7 +12,7 @@
 #include "nge_package_internal.h"
 #include "nge_io_file_internal.h"
 #include "nge_package_zip.h"
-#include "unzip.h"
+//#include "unzip.h"
 
 typedef struct ngePackageZip {
 	ngePackageOperation* op;
@@ -71,43 +71,44 @@ void ngePackageZipInit() {
 /* zip file operations */
 typedef struct {
 	ngeVFOperation* op;
-	unzFile file;
+	//unzFile file;
 } ngeVFZip;
 
 static int FileClose(ngeVF* f) {
 	ngeVFZip* zip = (ngeVFZip*)f;
-	unzCloseCurrentFile(zip->file);
-	unzClose(zip->file);
+	//unzCloseCurrentFile(zip->file);
+	//unzClose(zip->file);
 	free(zip);
 	return 0;
 }
 
 static int Read(void *buf, size_t size, size_t n, ngeVF* f) {
 	ngeVFZip* zip = (ngeVFZip*)f;
-
-	return unzReadCurrentFile(zip->file, buf, size*n);
+	return 0;
+	//return unzReadCurrentFile(zip->file, buf, size*n);
 }
 
 static int Tell(ngeVF *f) {
 	ngeVFZip* zip = (ngeVFZip*)f;
-
-	return unztell(zip->file);
+	return 0;
+	//return unztell(zip->file);
 }
 
 static int Eof(ngeVF *f) {
 	ngeVFZip* zip = (ngeVFZip*)f;
-
-	return unzeof(zip->file);
+    return 0;
+	//return unzeof(zip->file);
 }
 
 static int Size(ngeVF* f) {
 	ngeVFZip* zip = (ngeVFZip*)f;
-	unz_file_info info;
+	/*unz_file_info info;
 
 	if(unzGetCurrentFileInfo(zip->file, &info, NULL, 0, NULL, 0, NULL, 0) != UNZ_OK)
 		return -1;
 
-	return info.uncompressed_size;
+	return info.uncompressed_size;*/
+	return 0;
 }
 
 static ngeVFOperation zipFileOperation = {
@@ -123,7 +124,9 @@ static ngeVFOperation zipFileOperation = {
 int OpenFile(ngePackage* pkg, const char* fname,int flag) {
 	ngePackageZip* zip = (ngePackageZip*)pkg;
 	ngeVFZip* f;
-	unzFile file;
+	return 0;
+
+	/*unzFile file;
 
 	if (flag != IO_RDONLY)
 		return 0;
@@ -149,8 +152,10 @@ int OpenFile(ngePackage* pkg, const char* fname,int flag) {
 
 	f->op = &zipFileOperation;
 	return ngeVFAdd((ngeVF*)f);
+	 */
 
-fail:
-	unzClose(file);
+
+//fail:
+	//unzClose(file);
 	return 0;
 }

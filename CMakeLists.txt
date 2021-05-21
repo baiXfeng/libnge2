@@ -164,6 +164,10 @@ if(PSP)
   list(APPEND NGE2_LIBS psppower pspgum pspgu psprtc)
 endif()
 
+if(LINUX)
+  list(APPEND NGE2_LIBS X11)
+endif()
+
 if(WIN32)
   list(APPEND NGE2_LIBS ${SDLMAIN_LIBRARY})
 elseif(ANDROID)

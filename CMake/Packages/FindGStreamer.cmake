@@ -10,7 +10,7 @@ if(NOT GSTREAMER_FOUND)
   findpkg_begin(GSTREAMER)
 
   prepare_find_pkg_vars(GSTREAMER)
-  use_pkgconfig(GSTREAMER_PKGC gstreamer-0.10)
+  use_pkgconfig(GSTREAMER_PKGC gstreamer-1.0)
   
   set(GSTREAMER_INCLUDE_DIR ${GSTREAMER_PKGC_INCLUDE_DIRS})
   set(GSTREAMER_LIBRARY_REL ${GSTREAMER_PKGC_LIBRARIES})

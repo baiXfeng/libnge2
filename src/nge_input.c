@@ -103,7 +103,7 @@ void InitAnalog(AnalogProc analogproc)
 		analog_proc = analogproc;
 }
 
-//Ä£ÄâÒ¡¸Ë
+//Ä£ï¿½ï¿½Ò¡ï¿½ï¿½
 #if defined NGE_WIN || defined NGE_LINUX
 #define ANALOG_LEFT  0
 #define ANALOG_RIGHT 1
@@ -175,7 +175,7 @@ static int SetAnalog(int key,char flag)
 #if defined(NGE_LINUX)
 void FiniGraphics();
 
-#define _DEF_INPUT_PROC(n) inline void _##n (XEvent *event)
+#define _DEF_INPUT_PROC(n) inline static void _##n (XEvent *event)
 
 // notice : event is XEvent
 #define _INPUT_PROC(n) _##n (&event)

@@ -113,8 +113,8 @@ static void start_feed (GstElement * src, guint size, linux_audio_t* p)
 	GstFlowReturn ret;
 
 	buffer = gst_buffer_new ();
-	GST_BUFFER_DATA (buffer) = p->m_buf;
-	GST_BUFFER_SIZE (buffer) = p->m_buf_length;
+	//GST_BUFFER_DATA (buffer) = p->m_buf;
+	//GST_BUFFER_SIZE (buffer) = p->m_buf_length;
 
 	g_signal_emit_by_name (p->m_src, "push-buffer", buffer, &ret);
 	gst_buffer_unref (buffer);

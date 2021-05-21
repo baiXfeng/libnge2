@@ -41,8 +41,11 @@ if(WIN32 OR LINUX)
   endif()
 endif()
 
-find_package(Unzip)
-log_feature(UNZIP_FOUND "unzip" "a unzip library, you can download it from download page." "" REQUIRED)
+#find_package(Unzip)
+#log_feature(UNZIP_FOUND "unzip" "a unzip library, you can download it from download page." "" REQUIRED)
+
+find_package(X11)
+log_feature(X11_FOUND "x11" "a x11 library, you can download it from download page." "" REQUIRED)
 
 ################################################################################
 # coolauido

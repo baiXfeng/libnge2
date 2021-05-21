@@ -59,8 +59,7 @@ static int offset = 0;
 
 static void png_custom_mread_fn(png_structp png_ptr, png_bytep data, png_size_t length)
 {
-
-	uint8_t* handle = (uint8_t*)png_ptr->io_ptr;
+	uint8_t* handle = (uint8_t*)png_get_io_ptr(png_ptr);
 	uint8_t* workptr = handle + offset;
 	uint32_t i;
    if (handle == NULL)
@@ -406,7 +405,7 @@ static void png_custom_fwrite_fn(png_structp png_ptr, png_bytep data, png_size_t
 {
 	png_size_t check;
 
-	int handle = (int)(png_ptr->io_ptr);
+	int handle = (int)png_get_io_ptr(png_ptr);
 
 	check = io_fwrite(data,length,1,handle);
 	if (check != length)
