@@ -161,11 +161,9 @@ if(NGE_IS_DEBUG)
 endif()
 
 if(PSP)
-  list(APPEND NGE2_LIBS psppower pspgum pspgu psprtc)
-endif()
-
-if(LINUX)
-  list(APPEND NGE2_LIBS X11)
+    list(APPEND NGE2_LIBS psppower pspgum pspgu psprtc)
+elseif(LINUX)
+    list(APPEND NGE2_LIBS X11)
 endif()
 
 if(WIN32)

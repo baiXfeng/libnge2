@@ -25,5 +25,5 @@ if [ ! -d $tarDir ]; then
 	mkdir -p $tarDir
 fi
 cd $tarDir
-cmake -DBUILD_FOR=Psp -DCMAKE_BUILD_TYPE=$type $dir
+cmake -DBUILD_FOR=PSP -DCMAKE_BUILD_TYPE=$type $dir
 make

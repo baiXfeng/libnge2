@@ -81,8 +81,13 @@ gif_desc_p gif_animation_load(const char* filename,int displaymode,int swizzle)
 	 image_chains_p ptail = NULL,pitem = NULL;
 	 image_p pimage = NULL;
 
-	 int _error = 0;
-	 GifFileIn =  DGifOpenFileName(filename, _error);
+#if defined(NGE_PSP)
+     GifFileIn =  DGifOpenFileName(filename);
+#else
+    int _error = 0;
+    GifFileIn =  DGifOpenFileName(filename, _error);
+#endif
+
 	 pgif = (gif_desc_p)malloc(sizeof(gif_desc_t));
 	 if(GifFileIn == NULL || pgif == NULL)
 		 return NULL;
